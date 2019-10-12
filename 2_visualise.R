@@ -1,5 +1,5 @@
 library(tidyverse)
-df <- read_rds("gapminder_tidy.Rds")
+df <- read_csv("gapminder_tidy.csv")
 
 theme_set(theme_classic())
 

@@ -38,4 +38,4 @@ df <- df %>%
   summarise(population = sum(population)) %>%
   ungroup
 
-write_rds(df, "gapminder_tidy.Rds")
+write_csv(df, "gapminder_tidy.csv")
