@@ -4,7 +4,7 @@ df <- read_rds("gapminder_tidy.Rds")
 theme_set(theme_classic())
 
 p <- df %>% 
-  filter(country %in% c("Germany", "Angola", "Japan", "Peru")) %>%
+  filter(country %in% c("Germany", "Angola", "Japan", "United States")) %>%
   ggplot(aes(x = year, y = population, group = age, color = age)) +
   geom_line() + geom_point() +
   facet_wrap(~country, scales = "free_y") +
