@@ -31,3 +31,5 @@ p60 <- read_csv("data/population_aged_60plus_years_total_number.csv") %>%
 
 df <- list(p0, p05, p10, p15, p20, p40, p60) %>% bind_rows()
 df <- df %>% drop_na
+
+write_rds(df, "gapminder_tidy.Rds")
