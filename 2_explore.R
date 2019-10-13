@@ -20,6 +20,6 @@ ggsave("plot.png", p)
 
 # Top 10 countries in 2100 wrt total population
 
-# Top 10 countries with respect to change in total population between 1950 and 2100
+# Top 10 countries with respect to the change in total population between 1950 and 2100
 
 # etc.
