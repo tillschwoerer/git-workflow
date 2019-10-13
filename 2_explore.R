@@ -3,6 +3,9 @@ df <- read_csv("gapminder_tidy.csv")
 
 theme_set(theme_classic())
 
+
+# Age distribution over time in 4 countries
+
 p <- df %>% 
   filter(country %in% c("Germany", "Angola", "Japan", "Peru")) %>%
   ggplot(aes(x = year, y = population, group = age, color = age)) +
@@ -13,4 +16,10 @@ p
 ggsave("plot.png", p)
 
 
+# Top 10 countries in 1950 wrt total population
 
+# Top 10 countries in 2100 wrt total population
+
+# Top 10 countries with respect to change in total population between 1950 and 2100
+
+# etc.
