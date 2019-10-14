@@ -7,7 +7,7 @@ theme_set(theme_classic())
 # Age distribution over time in 4 countries
 
 p <- df %>% 
-  filter(country %in% c("Germany", "United States", "Japan", "Peru")) %>%
+  filter(country %in% c("Germany", "Angola", "Japan", "Peru")) %>%
   ggplot(aes(x = year, y = population, group = age, color = age)) +
   geom_line() + geom_point() +
   facet_wrap(~country, scales = "free_y") +
