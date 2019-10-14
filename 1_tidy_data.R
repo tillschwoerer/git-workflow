@@ -32,10 +32,6 @@ p60 <- read_csv("raw_data/population_aged_60plus_years_total_number.csv") %>%
 df <- list(p0, p05, p10, p15, p20, p40, p60) %>% bind_rows()
 df <- df %>% 
   drop_na %>% 
-  mutate(year = as.integer(year)) %>% 
-  mutate(age = ifelse(age %in% c("0-4","05-09","10-14","15-19"), "0-19", age)) %>%
-  group_by(country, year, age) %>%
-  summarise(population = sum(population)) %>%
-  ungroup
+  mutate(year = as.integer(year))
 
 write_csv(df, "gapminder_tidy.csv")
