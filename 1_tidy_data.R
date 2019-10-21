@@ -28,7 +28,6 @@ p60 <- read_csv("raw_data/population_aged_60plus_years_total_number.csv") %>%
   pivot_longer(cols = -country, names_to = "year", values_to = "population" ) %>% 
   mutate(age = "60+")
 
-
 df <- list(p0, p05, p10, p15, p20, p40, p60) %>% bind_rows()
 df <- df %>% 
   drop_na %>% 
