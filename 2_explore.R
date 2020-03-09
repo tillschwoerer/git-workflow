@@ -3,7 +3,6 @@ df <- read_csv("gapminder_tidy.csv")
 
 theme_set(theme_classic())
 
-
 # Age distribution over time in 4 countries
 
 p <- df %>% 
@@ -14,7 +13,7 @@ p <- df %>%
   scale_colour_brewer(palette = "Set1")
 p
 p1 <-df %>%
-  filter(age %in% c("Germany", "China")) %>%
+  filter(age %in% c("0-4", "5-9"), country %in% c("Germany", "United States", "China", "Peru")) %>%
   ggplot(aes(x = age, y= population, group = country, color=country)) +
   geom_line() +geom_point() + 
   facet_wrap(~age, scales = "free_y") +
@@ -31,6 +30,7 @@ p1 <- df %>%
     summarise(population=sum(population))%>%
     arrange(desc(population))
 class(df)
+p1
 
 df %>%
   filter(year == '1950') %>%
@@ -40,8 +40,7 @@ df %>%
   top_n(n=10) %>%
   ggplot(aes(x = country, y= population)) +
   geom_bar(stat = "identity") 
-  
-  
+# Fehler: Die Sortierung wird beim Plotten aufgehoben. ????????????????????????????????????????????????  
 
 ?geom_bar
 
@@ -51,6 +50,7 @@ p2 <- df %>%
     group_by(country) %>%
     summarise(population=sum(population)) %>%
     arrange(desc(population))
+p2
 
 df %>% 
   filter(year == '2100') %>%
@@ -62,16 +62,14 @@ df %>%
   geom_bar(stat = "identity")
   
 
-
 # Top 10 countries with respect to the change in total population between 1950 and 2100
 p3 <- df%>%
-  filter(year %in% seq(from="1950", to="2100", by=5)) %>%
+  filter(year %in% seq(from=1950, to=2100, by=5)) %>%
   group_by(country) %>%
-  summarise(growth=)
+  summarise(growth=sum(population)) %>%
+  arrange(desc(growth)) %>%
+  top_n(n=10)
 
-df %>%
-  filter(year%in%seq(from='1950', to='2100', by=5)) %>%
-  group_by(country) %>%
-  summarise(growth = )
+p3
 
 # etc.
